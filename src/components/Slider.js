@@ -53,7 +53,7 @@ const Slider = () => {
     }
     return (
         <>
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "70%", marginLeft: '15%' }}>
                 {listings === null ? (
                     <Spinner />
                 ) : (
@@ -78,7 +78,7 @@ const Slider = () => {
                                 onClick={() => {
                                     navigat(`/category/${data.type}/${id}`);
                                 }}
-                            >
+                                >
                                 <img
                                     src={data.imgUrls[0]}
                                     alt={data.name}

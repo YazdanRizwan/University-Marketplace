@@ -17,7 +17,7 @@ const Layout = ({ children, title }) => {
 };
 
 Layout.defaultProps = {
-  title: "University MarketPlace - Sell or Request for used product within univeristy",
+  title: "University MarketPlace - Sell/Buy/Request used product within univeristy",
 };
 
 export default Layout;

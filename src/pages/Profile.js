@@ -102,7 +102,7 @@ const Profile = () => {
   };
 
   //edit handler
-  const onEdit = (listingId,listingType) => {
+  const onEdit = (listingId, listingType) => {
       // console.log(listingType);
       // console.log(listingId);
       listingType === 'featuredListing' ?
@@ -114,56 +114,95 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div className="d-flex justify-content-between px-4">
-        <h4>Profile Details</h4>
-        <button className='btn btn-danger' onClick={logOutHandler}>LogOut</button>
-      </div>
-
-      <div className=" container card mt-4" style={{ width: '18rem' }}>
-        <div className="card-header">
-          <div className="d-flex justify-content-between">
-            <p>User Personal Details</p>
-            <span style={{ cursor: "pointer" }}
-              onClick={() => { changeDetails && onSubmit(); setChangeDetails(prevState => !prevState) }}
-            >
-              {changeDetails ? <MdOutlineDoneAll color="green" /> : <FiEdit color='red' />}
-            </span>
+      <div className="row profile-container">
+        <div className="col-md-6 profile-container-col1">
+          <img src="./assets/profile.svg" alt="profile" />
+        </div>
+        <div className="col-md-6 profile-container-col2">
+          <div className="container mt-4  d-flex justify-content-between">
+            <h2>Profile Details</h2>
+            <button className="btn btn-danger" onClick={logOutHandler}>
+              Logout
+            </button>
+          </div>
+          <div className="   mt-4 card">
+            <div className="card-header">
+              <div className="d-flex justify-content-between ">
+                <p>Your Personal Details </p>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    changeDetails && onSubmit();
+                    setChangeDetails((prevState) => !prevState);
+                  }}
+                >
+                  {changeDetails ? (
+                    <MdOutlineDoneAll color="green" />
+                  ) : (
+                      <FiEdit color="red" />
+                  )}
+                </span>
+              </div>
+            </div>
+            <div className="card-body">
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="exampleInputPassword1" className="form-label">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    value={name}
+                    onChange={onChange}
+                    disabled={!changeDetails}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="exampleInputEmail1" className="form-label">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    className="form-control"
+                    id="email"
+                    aria-describedby="emailHelp"
+                    onChange={onChange}
+                    disabled={!changeDetails}
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="mt-3 create-listing">
+            < Link to="/create-listing" >
+              Add a Product < BsFillArrowRightSquareFill />
+            </Link >
+            <br />
+            <Link to="/request-listing">
+              Request a Product <BsFillArrowRightSquareFill />
+            </Link>
           </div>
         </div>
-        <div className="card-body">
-          <form>
-            <div className="mb-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">Name</label>
-              <input type="text" className="form-control" id="name" value={name} onChange={onChange} disabled={!changeDetails}/>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-              <input type="text" className="form-control" id="email" value={email} onChange={onChange} disabled={!changeDetails} />
-            </div>
-          </form>
-          <Link to="/create-listing"> 
-            Add a Product <BsFillArrowRightSquareFill /> 
-          </Link>
-          <br/>
-          <Link to="/request-listing">
-            Request a Product <BsFillArrowRightSquareFill />
-          </Link>
-        </div>
       </div>
+
       <div className="container-fluid mt-4 your-listings">
         {listings && listings?.length > 0 && (
           <>
             <h3 className="mt-4">Your Listings</h3>
             <div>
+              
               {listings.map((listing) => (
                 <ListingItem
                   className="profile-listing"
                   key={listing.id}
                   listing={listing.data}
-                  type = {listing.type}
                   id={listing.id}
+                  type={listing.type}
                   onDelete={() => onDelete(listing.id)}
-                  onEdit={() => onEdit(listing.id,listing.type)}
+                  onEdit={() => onEdit(listing.id,listing.data.type)}
                 />
               ))}
             </div>
@@ -175,3 +214,6 @@ const Profile = () => {
 }
 
 export default Profile
+
+
+  

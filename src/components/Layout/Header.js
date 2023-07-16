@@ -1,6 +1,10 @@
 import React from "react"; 
 import { Link, NavLink } from "react-router-dom";
+import { FaUniversity } from "react-icons/fa"
+import { VscRequestChanges } from "react-icons/vsc"
 import "../../styles/Header.css";
+import { MdFeaturedPlayList } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   return (
@@ -8,7 +12,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <h1>University Marketplace</h1>
+            <h1><FaUniversity />University Marketplace</h1>
           </Link>
           <button
             className="navbar-toggler"
@@ -29,7 +33,7 @@ const Header = () => {
                     isActive ? "active" : "inactive"}`}
                   to="/category/featuredListing"
                 >
-                  Featured Listings
+                  <MdFeaturedPlayList />Featured Listings
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -38,7 +42,7 @@ const Header = () => {
                     isActive ? "active" : "inactive"}`}
                   to="/category/requestedListing"
                 >
-                  Requested Listings
+                  <VscRequestChanges />Requested Listings
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -47,7 +51,7 @@ const Header = () => {
                     isActive ? "active" : "inactive"}`}
                   to="/profile"
                 >
-                  Profile
+                  <CgProfile/>Profile
                 </NavLink>
               </li>
               
