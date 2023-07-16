@@ -11,7 +11,7 @@ const Footer = () => {
       <h3>
         Web app created by Yazdan & Ataliya
       </h3>
-      <h6>All Right Reserved &copy; Yazdan & Ataliya - 2022</h6>
+      <h6>All Right Reserved &copy; Yazdan & Ataliya - 2023</h6>
       <div className="d-flex flex-row p-2">
         <p className="me-4" title="Github">
             <BsGithub onClick={handleClick}  color="black" size={30} />

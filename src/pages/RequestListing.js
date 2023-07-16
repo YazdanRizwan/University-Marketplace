@@ -249,14 +249,17 @@ const CreateListing = () => {
                     {/* Contact number */}
                     <div className="mb-3">
                         <label htmlFor="number">Contact Number :</label>
-                        <textarea
+                        <input
                             className="form-control"
-                            placeholder="Enter Your Address"
+                            type="digit"
                             id="number"
+                            maxlength="10"
+                            minLength="10"
                             value={number}
                             onChange={onChangeHandler}
                             required
-                        />
+                        >
+                        </input>
                     </div>
                     {/* bargain  */}
                     <div className="mb-3 ">
