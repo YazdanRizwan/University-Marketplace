@@ -4,7 +4,7 @@ import "../../styles/footer.css";
 
 const Footer = () => {
   const handleClick = () => {
-    window.location.href = 'https://bobbyhadz.com';
+    window.location.href = 'https://github.com/YazdanRizwan/University-Marketplace';
   };
   return (
     <div className="footer pt-4 d-flex flex-column align-items-center justify-content-center bg-dark text-light p-4">
